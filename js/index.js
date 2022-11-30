@@ -1,7 +1,7 @@
-const userNameInput = document.getElementById("userNameInput");
-const userEmailInput = document.getElementById("userEmailInput");
-const userPasswordInput = document.getElementById("userPasswordInput");
-const signupBtn = document.getElementById("signupBtn");
+let userNameInput = document.getElementById("userNameInput");
+let userEmailInput = document.getElementById("userEmailInput");
+let userPasswordInput = document.getElementById("userPasswordInput");
+let signupBtn = document.getElementById("signupBtn");
 
 let users;
 if (localStorage.getItem("users") == null) {
@@ -25,20 +25,20 @@ function signUp() {
 
         users.push(user)
         localStorage.setItem("users", JSON.stringify(users));
-        const confirmMsg = document.getElementById("confirmMsg");
+        let confirmMsg = document.getElementById("confirmMsg");
         confirmMsg.classList.replace("d-none", "d-block");
-        const signin = document.getElementById("signin")
+        let signin = document.getElementById("signin")
         signin.classList.replace("d-none", "d-block");
     }
     else {
-        const tryAgainMsg = document.getElementById("tryAgainMsg");
+        let tryAgainMsg = document.getElementById("tryAgainMsg");
         tryAgainMsg.classList.replace("d-none", "d-block");
     }
 
 }
 
 function usernameValidation() {
-    const usernameAlert = document.getElementById("usernameAlert");
+    let usernameAlert = document.getElementById("usernameAlert");
 
     let regex = /^[A-Za-z]{3,10}(\s?[A-Za-z]{3,10})?$/
     if (regex.test(userNameInput.value) == true && userNameInput.value != "") {
@@ -59,7 +59,7 @@ function usernameValidation() {
 }
 function userPasswordValidation() {
     let regex = /^.{5,15}$/;
-    const userPasswordAlert = document.getElementById("userPasswordAlert");
+    let userPasswordAlert = document.getElementById("userPasswordAlert");
 
     if (regex.test(userPasswordInput.value) == true && userPasswordInput.value != "") {
         userPasswordInput.classList.add("is-valid");
@@ -79,7 +79,7 @@ function userPasswordValidation() {
 }
 
 function userEmailValidation() {
-    const userEmailAlert = document.getElementById("userEmailAlert");
+    let userEmailAlert = document.getElementById("userEmailAlert");
 
     let regex = /@[a-z]{5,10}(\.com)$/;
     if (regex.test(userEmailInput.value) == true && userEmailInput.value != "") {
